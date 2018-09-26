@@ -1,13 +1,12 @@
-# protoc-gen-auxo
+# protoc-gen-hprose
 
-**auxo** RPC support many codecs, if you use **Protocol Buffers** codec, you can generate contract codes from [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) service definition files with **protoc-gen-auxo**.
 
 ## Install
 
 Use `go get` to install the code generator:
 
 ```bash
-go get github.com/cuigh/protoc-gen-auxo
+go get github.com/cuigh/protoc-gen-hprose
 ```
 
 You will also need:
@@ -20,13 +19,13 @@ You will also need:
 Just like **grpc**:
 
 ```bash
-protoc --go_out=. --auxo_out=. hello.proto
+protoc --go_out=. --hprose_out=. hello.proto
 ```
 
-Service interfaces and client proxies were generated into a separate file `[name].auxo.go`:
+Service interfaces and client proxies were generated into a separate file `[name].hprose.go`:
 
 ```
-hello.auxo.go
+hello.hprose.go
 hello.pb.go
 hello.proto
 ```
