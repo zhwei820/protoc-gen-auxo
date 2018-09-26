@@ -20,12 +20,14 @@ func main() {
 	app.Version = "0.1"
 	app.Desc = `Code generator for auxo RPC
 
-Usage: protoc --go_out=. --auxo_out=. hello.proto`
-	app.Action = func(c *app.Context) {
+Usage: protoc --go_out=. --hprose_out=. hello.proto`
+
+	app.Action = func(c *app.Context) error {
 		if err := generate(); err != nil {
 			fmt.Fprintln(os.Stderr, err.Error())
 			os.Exit(1)
 		}
+		return nil
 	}
 	app.Flags.Register(flag.Help | flag.Version)
 	app.Start()
