@@ -173,7 +173,7 @@ func (g *Generator) generateService(file *descriptor.FileDescriptorProto, servic
 		path = []int32{servicePath, int32(index), serviceMethodPath, int32(i)}
 		loc := g.findLocation(file, path)
 		g.generateComments(loc, "\t")
-		g.b.Format("\t%s func(input []byte) (out  []byte, error) `simple:\"true\"`",
+		g.b.Format("\t%s func(input []byte) ( []byte, error) `simple:\"true\"`",
 			method.GetName())
 		if c := loc.GetTrailingComments(); c != "" {
 			g.b.Comment(c, " ")
